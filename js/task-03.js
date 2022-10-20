@@ -14,12 +14,17 @@ const images = [
 ];
 
 
-const ul = document.querySelector('.gallery');
+  const ul = document.querySelector('.gallery');
 
-const onMarkup = () => {
-images.map(img => {
-  return ul.insertAdjacentHTML('beforeend', `<li> <img src = "${img.url}" alt = "${img.alt}" width = 300px /> </li>`);
-});
-  console.log(ul);
-}
-onMarkup();
+  const markup = images.map(img => {
+    return `<li> <img src = "${img.url}" alt = "${img.alt}" width = 300px /> </li>`;
+  }).join('');
+  ul.insertAdjacentHTML('beforeend', markup)
+  console.log(ul)
+
+
+
+
+
+
+

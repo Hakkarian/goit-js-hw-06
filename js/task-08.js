@@ -1,11 +1,13 @@
 const form = document.querySelector('.login-form');
 const input = document.querySelector('input');
 
-const onFormSubmit = (e) => {
+const onFormSubmit = (e, formEl) => {
+    formEl = e.currentTarget.elements;
     e.preventDefault();
 
-    if (input.value.length === 0) {
-        alert('Please, fill all the fields ^)');
+    if (formEl.password.value.length === 0 || formEl.email.value.length === 0) {
+        onReset();
+        return alert('Please, fill all the fields ^)');
     }
 
     onFormConsole(e);
@@ -13,12 +15,14 @@ const onFormSubmit = (e) => {
     onReset();
 }  
 
-const onFormConsole = (e) => {
-    const formEl = e.currentTarget.elements;
+const onFormConsole = (e, formEl) => {
+    formEl = e.currentTarget.elements;
 
-    console.log('Email: ', formEl.email.value);
-
-    console.log('Password: ', formEl.password.value);
+    const formObj = {
+        email: formEl.email.value,
+        password: formEl.password.value,
+    }
+    console.log(formObj);
     
 }
 const onReset = () => {
