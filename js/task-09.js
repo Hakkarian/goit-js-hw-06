@@ -8,7 +8,7 @@ const span = document.querySelector('.color');
 const onBodyColor = () => {
   document.body.style.backgroundColor = getRandomHexColor();
   if (document.body.style.backgroundColor = getRandomHexColor()) {
-    span.textContent = getRandomHexColor();
+    span.textContent = document.body.style.backgroundColor;
     span.style.color = 'white';
   }
 }

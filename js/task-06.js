@@ -2,14 +2,17 @@ const input = document.querySelector('#validation-input');
 
 const onBlur = () => {
     console.log('blur')
-    if (input.value.length > 6) {
+    if (input.value.length !== 6) {
+        alert('This is wrong number')
         input.classList.add('invalid');
-        alert("There's more than 6 ;)");
         input.textContent = '';
-    } 
+    } else {
+        input.classList.remove('invalid');
         input.classList.add('valid');
+    }
+
+}
 
     
-}
 
 input.addEventListener('blur', onBlur);
